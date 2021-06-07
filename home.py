@@ -16,3 +16,8 @@ c2 = db['admin']
 c1 = db['patient']
 c1 = db['appoinment']
 c1 = db['vaccinated']
+
+option = st.sidebar.selectbox('Menu',['Home','Appoinment','Staff','Admin','Dashboard'])
+
+if option == 'Home':
+  st.title('Covid Vaccination Portal')
