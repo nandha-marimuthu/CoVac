@@ -17,33 +17,33 @@ c3 = db['patient']
 c4 = db['appoinment']
 c5 = db['vaccinated']
 
-def dup(x):
-  z=[]
-  for i in x:
-    if i not in z:
-      z.append(i)
-  return z
-a = c1.find()
-x=[]
-for i in a:
 
-  x.append(i['region'])
-x = dup(x)
+
 
 
 option = st.sidebar.selectbox('Menu',['Home','Appoinment','Staff','Admin','Dashboard','About'])
 
 if option == 'Home':
   st.title('Covid Vaccination Portal')
-  
+
 if option == 'Appoinment':
   st.title('Appoinment')
-  st.header('Hospitals')
-  option1 = st.selectbox('Regions',x)
-  b = c1.find({'region':option1})
-  y = []
-  for i in b:
-    y.append(i['cname'])
-  option2 = st.selectbox('Hospitals',y)
+  name = st.text_input('Name')
+  aadhar = st.text_input('Aadhar No')
+  a = st.checkbox('procced')
+  a1 = c4.find()
+  c = 0
+  for i in a1:
+    if i['name'] == name:
+      if i['aadhar'] == aadhar:
+        c+=1
+  if a and (c==0):
+    from appoinment import appoinment
+    appoinment(name,aadhar)
+      
+
+
+
+  
 
   
