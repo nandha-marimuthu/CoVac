@@ -13,11 +13,37 @@ db = client['Covac']
 #declaring the collections
 c1 = db['centers']
 c2 = db['admin']
-c1 = db['patient']
-c1 = db['appoinment']
-c1 = db['vaccinated']
+c3 = db['patient']
+c4 = db['appoinment']
+c5 = db['vaccinated']
 
-option = st.sidebar.selectbox('Menu',['Home','Appoinment','Staff','Admin','Dashboard'])
+def dup(x):
+  z=[]
+  for i in x:
+    if i not in z:
+      z.append(i)
+  return z
+a = c1.find()
+x=[]
+for i in a:
+
+  x.append(i['region'])
+x = dup(x)
+
+
+option = st.sidebar.selectbox('Menu',['Home','Appoinment','Staff','Admin','Dashboard','About'])
 
 if option == 'Home':
   st.title('Covid Vaccination Portal')
+  
+if option == 'Appoinment':
+  st.title('Appoinment')
+  st.header('Hospitals')
+  option1 = st.selectbox('Regions',x)
+  b = c1.find({'region':option1})
+  y = []
+  for i in b:
+    y.append(i['cname'])
+  option2 = st.selectbox('Hospitals',y)
+
+  
