@@ -50,19 +50,48 @@ def appoinment(name,aadhar):
   center = st.selectbox('Hospitals',y)
   today = datetime.date.today()
   tomorrow = today + datetime.timedelta(days=2)
-  d = st.date_input('Date', tomorrow)
+  d1 = st.date_input('Date', tomorrow)
+  d = str(d1)
 
   if d == today:
     'Please enter a valid date'
   slot = st.select_slider('Time Slot',['10AM','1PM','4PM'])
-  d
+  z = c4.find({'center':center,'date':d,'slot':slot}).count()
+  print(z)
+  
 
   if st.button('Book Appoinment'):
     num = 4
-    aid = ''.join(secrets.choice(string.ascii_letters + string.digits) for x in range(num))  
+    aid = ''.join(secrets.choice(string.ascii_letters + string.digits) for x in range(num))
     st.success('Your Appoinment is Booked & Appoinment Id is '+aid)
-    
-  
+    pd = {'name':name,'aadhar':aadhar,'age':age,'region':region,'gender':gender,'email':email}
+    ap = {'aid':aid,'name':name,'aadhar':aadhar,'age':age,'center':center,'date':d,'slot':slot,'status':'processing'}
+    c4.insert_one(ap)
+    c3.insert_one(pd)
+
+def login():
+  st.title('Appoinment')
+  name = st.text_input('Name')
+  aadhar = st.text_input('Aadhar No')
+  a = st.checkbox('procced')
+  a1 = c4.find()
+  a2 = c5.find()
+  c = 0
+  for i in a1:
+    if i['name'] == name:
+      if i['aadhar'] == aadhar:
+        c+=1
+  for i in a2:
+    if i['name'] == name:
+      if i['aadhar'] == aadhar:
+        c+=1
+  if a:
+    if (c==0):
+      
+      appoinment(name,aadhar)
+    else:
+      st.error('Already Booked')
+ 
 
 
   
@@ -73,11 +102,3 @@ def appoinment(name,aadhar):
 
 
 
-# today = datetime.date.today()
-# tomorrow = today + datetime.timedelta(days=1)
-# start_date = st.date_input('Start date', today)
-# end_date = st.date_input('End date', tomorrow)
-# if start_date < end_date:
-#     st.success('Start date: `%s`\n\nEnd date:`%s`' % (start_date, end_date))
-# else:
-#     st.error('Error: End date must fall after start date.')

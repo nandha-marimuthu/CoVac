@@ -21,26 +21,32 @@ c5 = db['vaccinated']
 
 
 
-option = st.sidebar.selectbox('Menu',['Home','Appoinment','Staff','Admin','Dashboard','About'])
+option = st.sidebar.selectbox('Menu',['Home','Appoinment','Cancel/Reshedule','Staff','Admin','Dashboard','About'])
 
 if option == 'Home':
   st.title('Covid Vaccination Portal')
+  from covid import Covid
+
+  from covid_india import states
+  a = states.getdata()
+  states = []
+  for i in a:
+    states.append(i)
+  sta = st.selectbox('statewiese data',states)
+  for i in a[sta]:
+    st.write(i," : ",a[sta][i])
+  st.title('FAQ')
+  from homepage import homepage
+  homepage()
+
 
 if option == 'Appoinment':
-  st.title('Appoinment')
-  name = st.text_input('Name')
-  aadhar = st.text_input('Aadhar No')
-  a = st.checkbox('procced')
-  a1 = c4.find()
-  c = 0
-  for i in a1:
-    if i['name'] == name:
-      if i['aadhar'] == aadhar:
-        c+=1
-  if a and (c==0):
-    from appoinment import appoinment
-    appoinment(name,aadhar)
-      
+  from appoinment import login
+  login()
+if option == 'Cancel/Reshedule':
+  from recan import recan
+  recan()
+  
 
 
 
