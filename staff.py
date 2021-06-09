@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 import smtplib
+import datetime
 client = MongoClient('mongodb+srv://dbuser1:1234@eshop.m8tu7.mongodb.net/test')
 db = client['Covac']
 c1 = db['centers']
@@ -61,26 +62,25 @@ def staff():
             if check:
                 xyz=0
                 for j in v2:
-
+                    dat=j['date']
+                    slot1=j['slot']
                     xyz+=1
                     if xyz==1:
                         st.write(n1,"has been vaccinated")
-                        dict1={'name':n1,'aadhar':a1,'centre':c2,'staff':n,'status':'vaccinated','aid':aid}
-                        abc=c5.insert_one(dict1)
-                        #mail(name,mailid)
+                        dict1={'name':n1,'aadhar':a1,'centre':c2,'staff':n,'date':dat,'slot':slot1,'status':'vaccinated','aid':aid}
+                        abc=c5.insert_one(dict1)                       
+                        today = datetime.date.today()
+                        tomorrow = today + datetime.timedelta(days=42)
+                        cont="You have been vaccinated "+"\nDon't forget to take your second dose on "+str(tomorrow)
                         del1=c4.delete_one({'aadhar':a1})
-                        sender = 'tnvaccinationportal@gmail.com'
-                        rec = 'keerthanav3103@gmail.com'
-                        password = 'vaccine123'
-                        msg=n1+" has been vaccinated"
-                        server = smtplib.SMTP('smtp.gmail.com', 587)
-                        server.starttls()
-                        server.login(sender, password)
-                        server.sendmail(sender, rec, msg)
+                        from pdfemail import pdf_mail
+                        pdf_mail(dict1,cont)
 
                     else:
                         "Invalid name or aadhar number"
 
     elif n=="" or  p=="":"Please login to continue"
     else:"Invalid credentials"  
+
+staff()
 
