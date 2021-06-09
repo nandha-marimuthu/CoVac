@@ -21,14 +21,11 @@ c6 = db["kee's roughwork"]
 # pdf = canvas.Canvas(fileName)
 # pdf.setTitle(documentTitle)
 
-# from fpdf import FPDF
-# #obj
-# mypdf= FPDF()
-# #create
-# mypdf.add_page()
-# #font
-# mypdf.set_font("Arial",size=18)
-# mypdf.cell(200,10,txt="Magic",align="C")
-# mypdf.output("keerthu.pdf")
+from fpdf import FPDF
+mypdf= FPDF()
+mypdf.add_page()
+mypdf.set_font("Arial",size=18)
+mypdf.cell(200,10,txt="Wingardium leviosa",ln=1,align="C")
+mypdf.output("keerthu.pdf")
 
 
