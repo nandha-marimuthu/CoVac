@@ -57,17 +57,27 @@ def appoinment(name,aadhar):
     'Please enter a valid date'
   slot = st.select_slider('Time Slot',['10AM','1PM','4PM'])
   z = c4.find({'center':center,'date':d,'slot':slot}).count()
-  print(z)
-  
+  st.write(str(20-z)+' slots are left')
+  if z>=20:
+    st.warning('Choose other Hospital')
 
-  if st.button('Book Appoinment'):
+  if z<20 and st.button('Book Appoinment'):
     num = 4
     aid = ''.join(secrets.choice(string.ascii_letters + string.digits) for x in range(num))
     st.success('Your Appoinment is Booked & Appoinment Id is '+aid)
+    cont = "Don't forget to vaccinate !"
     pd = {'name':name,'aadhar':aadhar,'age':age,'region':region,'gender':gender,'email':email}
     ap = {'aid':aid,'name':name,'aadhar':aadhar,'age':age,'center':center,'date':d,'slot':slot,'status':'processing'}
+    from pdfemail import pdf_mail
+    pdf_mail(ap,cont)
     c4.insert_one(ap)
+    print(ap)
     c3.insert_one(pd)
+    
+    
+    
+    st.success('Vaccination details is sent to your registered mailid')
+
 
 def login():
   st.title('Appoinment')

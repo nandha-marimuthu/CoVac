@@ -27,8 +27,17 @@ def reshedule(aid):
   d = str(d1)
   slot = st.select_slider('Time Slot',['10AM','1PM','4PM'])
   data = {'aid':aid}
+  c = c4.find(data)
+  for i in c:
+    center = i['center']
+
+  z = c4.find({'center':center,'date':d,'slot':slot}).count()
+  st.write(str(20-z)+' slots are left')
   a = st.button('Reshedule')
-  if a:
+
+  if a and z<20:
     # c4.update_one(data,{"$set":{}})
     c4.update_one(data,{"$set":{"status":'resheduled',"date":d,'slot':slot}})
     st.success('Your vaccination appoinment reshduled at '+d+' at '+slot+' slot')
+  if z>=20:
+    st.warning('Choose another date/slot')

@@ -3,7 +3,7 @@ import imghdr
 from email.message import EmailMessage
 from fpdf import FPDF
 
-def pdf_mail(msg):
+def pdf_mail(msg,cont):
     pdf = FPDF()
     pdf.add_page()  
     pdf.set_font('Arial', 'B', 15)
@@ -12,14 +12,12 @@ def pdf_mail(msg):
     pdf.set_font("Arial", size = 15)
     c=2
     for i in msg:
-      s = i+' : '+msg[i]
+      s = i+' : '+str(msg[i])
       pdf.cell(20, 10, txt = s, 
          ln = c, align = 'J')
       c+=1
 
     pdf.output("covac.pdf") 
-
-
 
 # email
     Sender_Email = "tnvaccinationportal@gmail.com"
@@ -30,7 +28,7 @@ def pdf_mail(msg):
     newMessage['Subject'] = "Vaccination Portal" 
     newMessage['From'] = Sender_Email                   
     newMessage['To'] = Reciever_Email                   
-    newMessage.set_content("Don't forget to vaccinate !") 
+    newMessage.set_content(cont) 
 
     files = ['covac.pdf']
 

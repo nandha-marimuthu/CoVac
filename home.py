@@ -29,7 +29,7 @@ if option == 'Home':
 
   from covid_india import states
   a = states.getdata()
-  states = []
+  states = ['Tamil Nadu']
   for i in a:
     states.append(i)
   sta = st.selectbox('statewiese data',states)
