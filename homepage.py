@@ -13,14 +13,6 @@ c4 = db['appoinment']
 c5 = db['vaccinated']
 
 def homepage():
-    st.title("Vaccination Portal")
-    st.markdown("""## Get Vaccinated :syringe::100: """,True)
-    st.image("vaccineimage2.jpg", width=500)
-    # col1,col2 = st.beta_columns(2)
-    # with col1:
-    #     st.image("vaccineimage2.jpg", width=300,use_column_width=None)
-    # with col2:
-    #     st.image("vaccineimage1.jpg",width=300,use_column_width=300)
     option = st.selectbox('Frequently asked questions',['Select your questions','About the vaccine','Who can get vaccinated ?','After vaccination','Register for vaccination'])
     
     if option=="About the vaccine":
@@ -77,8 +69,8 @@ def staff():
         else:
             "invalid"
 
-option = st.sidebar.selectbox('Menu',['Home','Appoinment','Staff','Admin','Dashboard','About'])
-if option == 'Home':
-  homepage()
-elif option == 'Staff':
-    staff()
+# option = st.sidebar.selectbox('Menu',['Home','Appoinment','Staff','Admin','Dashboard','About'])
+# if option == 'Home':
+#   homepage()
+# elif option == 'Staff':
+#     staff()
