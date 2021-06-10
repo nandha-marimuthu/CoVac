@@ -21,11 +21,27 @@ c6 = db["kee's roughwork"]
 # pdf = canvas.Canvas(fileName)
 # pdf.setTitle(documentTitle)
 
-from fpdf import FPDF
-mypdf= FPDF()
-mypdf.add_page()
-mypdf.set_font("Arial",size=18)
-mypdf.cell(200,10,txt="Wingardium leviosa",ln=1,align="C")
-mypdf.output("keerthu.pdf")
+# from fpdf import FPDF
+# mypdf= FPDF()
+# mypdf.add_page()
+# mypdf.set_font("Arial",size=18)
+# mypdf.cell(200,10,txt="Wingardium leviosa",ln=1,align="C")
+# mypdf.output("keerthu.pdf")
+
+from covid import Covid
+from covid_india import states
+a = states.getdata()
+states = ['Tamil Nadu']
+for i in a:
+    states.append(i)
+sta = st.selectbox('statewiese data',states)
+
+for j in a[sta]:
+    print(j)
+    print(a[sta][j])
+    #st.write(i," : ",a[sta][j])
+    
+#print(states.getdata('Total'))
+
 
 

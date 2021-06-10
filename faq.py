@@ -12,13 +12,12 @@ c3 = db['patient']
 c4 = db['appoinment']
 c5 = db['vaccinated']
 
-def homepage():
+def faq():
     option = st.selectbox('Frequently asked questions',['Select your questions','About the vaccine','Who can get vaccinated ?','After vaccination','Register for vaccination'])
     
     if option=="About the vaccine":
         e1 = st.beta_expander("Which COVID-19 vaccines are licensed in India?")
         e1.write("Two vaccines were granted emergency use authorization by the Central Drugs Standard Control Organization (CDSCO) in India, Covishield® (AstraZeneca's vaccine manufactured by Serum Institute of India) and Covaxin® (manufactured by Bharat Biotech Limited). Sputnik - V has been granted EUA in the month of April 2021.")
-        #e1.write(st.image("vaccineimage2.jpg", width=500))
         e2 = st.beta_expander("What technology has been used in development of the currently available two vaccines in India?")
         e2.write("Covishield® vaccine, manufactured by the Serum Institute of India, is a Viral Vector-based Technology which is also used to manufacture Ebola vaccine.")
         e2.write("Covaxin® vaccine, manufactured by the Bharat Biotech, is a Whole-virion Inactivated Coronavirus Vaccine which is also used to manufacture vaccines like Influenza, Rabies and Hepatitis- A.")
@@ -48,29 +47,5 @@ def homepage():
             for i in range(100):
                 latest_iteration.text('Redirecting to registration portal....')
                 bar.progress(i + 1)
-                time.sleep(0.1)
-            st.success("Book an appoinment")
-def staff():
-    st.write('Covac Staff Portal')
-    n = st.text_input('staffname')
-    p = st.text_input('passowrd',type="password")
-    b=st.button("Enter")
-    c=0
-    if b:
-        v1=c1.find({'staff':n,'password':p})
-        for i in v1:
-            a=i['staff']
-            b=i['password']
-            if n==a:
-                if p==b:
-                    c+=1
-        if c==1:
-            "valid"
-        else:
-            "invalid"
-
-# option = st.sidebar.selectbox('Menu',['Home','Appoinment','Staff','Admin','Dashboard','About'])
-# if option == 'Home':
-#   homepage()
-# elif option == 'Staff':
-#     staff()
+                time.sleep(0.01)
+            st.success("Select Appoinment from Menu to book an appoinment now")

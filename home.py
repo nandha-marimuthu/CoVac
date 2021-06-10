@@ -19,8 +19,6 @@ c5 = db['vaccinated']
 
 
 
-
-
 option = st.sidebar.selectbox('Menu',['Home','Appoinment','Cancel/Reshedule','Staff','Admin','Dashboard','About'])
 
 if option == 'Home':
@@ -36,16 +34,31 @@ if option == 'Home':
   for i in a[sta]:
     st.write(i," : ",a[sta][i])
   st.title('FAQ')
-  from homepage import homepage
-  homepage()
-
-
+  from faq import faq
+  faq()
 if option == 'Appoinment':
   from appoinment import login
   login()
 if option == 'Cancel/Reshedule':
   from recan import recan
   recan()
+if option == 'Staff':
+  from staff import staff
+  staff()
+if option == 'Admin':
+  from admin import admin_login
+  admin_login()
+if option == 'About':
+  from about import about
+  about()
+if option == 'Dashboard':
+  st.title("Dashboard")
+  #from dashboard import dashboard
+
+
+
+
+
 
   
 
