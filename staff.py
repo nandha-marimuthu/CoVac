@@ -15,7 +15,7 @@ c6 = db["kee's roughwork"]
 def staff():
     st.markdown("""# Covac Staff Portal""")
     n = st.sidebar.text_input('staffname')
-    p = st.sidebar.text_input('passowrd',type="password")
+    p = st.sidebar.text_input('password',type="password")
     v1=c1.find({'staff':n,'password':p})
     c=0
     for i in v1:

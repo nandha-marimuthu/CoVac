@@ -27,12 +27,15 @@ if option == 'Home':
 
   from covid_india import states
   a = states.getdata()
-  states = ['Tamil Nadu']
+  states = []
   for i in a:
     states.append(i)
   sta = st.selectbox('statewiese data',states)
-  for i in a[sta]:
-    st.write(i," : ",a[sta][i])
+  ac,cu,de=a[sta]["Active"],a[sta]["Cured"],a[sta]["Death"]
+  st.write('Total: ',ac+cu+de)
+  st.write('Active: ',ac)
+  st.write('Cured: ',cu)
+  st.write('Death: ',de)
   st.title('FAQ')
   from faq import faq
   faq()
