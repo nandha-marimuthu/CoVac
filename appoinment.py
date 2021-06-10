@@ -71,7 +71,7 @@ def appoinment(name,aadhar):
     from pdfemail import pdf_mail
     pdf_mail(ap,cont)
     c4.insert_one(ap)
-    print(ap)
+    #print(ap)
     c3.insert_one(pd)
     
     
