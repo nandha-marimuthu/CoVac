@@ -20,7 +20,7 @@ c4 = db['appoinment']
 c5 = db['vaccinated']
 
 def recan():
-  st.title('Reshedule/Cancel')
+  st.title('Reschedule/Cancel')
   aid = st.text_input("Appoinment Id ")
   name = st.text_input("Name ")
   r1 = c4.find()

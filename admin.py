@@ -62,7 +62,7 @@ def edit_centers():
 
 
 def admin_login():
-        st.title("Welcome to admin portal\n")
+        #st.title("Welcome to admin portal\n")
     #admin_id=input("Adminname : ")
     #pwd=input("Password : ")
         admin_user=st.sidebar.text_input("Admin Name")
@@ -93,22 +93,22 @@ def admin_login():
 
 
     
-def main():
-        menu=['Pick your choice','Admin','Dashboard']
-        mc=st.sidebar.selectbox("Menus",menu)
-        if mc=='Pick your choice':
-            st.title("Admin And Dashboard page process")
-            st.success("WELCOME TO COVAC -> AN APPOINTMENT BOOKING PORTAL")
-        if mc=='Admin':
-            admin_login()
-        #edit_centers()
+# def main():
+#         menu=['Pick your choice','Admin','Dashboard']
+#         mc=st.sidebar.selectbox("Menus",menu)
+#         if mc=='Pick your choice':
+#             st.title("Admin And Dashboard page process")
+#             st.success("WELCOME TO COVAC -> AN APPOINTMENT BOOKING PORTAL")
+#         if mc=='Admin':
+#             admin_login()
+#         #edit_centers()
         
-        if mc=='Dashboard':
-            dashboard()
+#         if mc=='Dashboard':
+#             dashboard()
 
 
 
              
-if __name__ == "__main__":
-        main()
+# if __name__ == "__main__":
+#         main()
        

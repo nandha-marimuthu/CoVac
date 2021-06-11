@@ -19,10 +19,11 @@ c5 = db['vaccinated']
 
 
 
-option = st.sidebar.selectbox('Menu',['Home','Appoinment','Cancel/Reshedule','Staff','Admin','Dashboard','About'])
+option = st.sidebar.selectbox('Menu',['Home','Appointment','Cancel/Reschedule','Staff','Admin','Dashboard','About'])
 
 if option == 'Home':
-  st.title('Covid Vaccination Portal')
+  des1="CovaC - Vaccination Portal"
+  st.markdown(f"<h1 style='text-align: center; color: FireBrick;'>{des1}</h1>",unsafe_allow_html=True)
   from covid import Covid
 
   from covid_india import states
@@ -39,25 +40,28 @@ if option == 'Home':
   st.title('FAQ')
   from faq import faq
   faq()
-if option == 'Appoinment':
+if option == 'Appointment':
   from appoinment import login
   login()
-if option == 'Cancel/Reshedule':
+if option == 'Cancel/Reschedule':
   from recan import recan
   recan()
 if option == 'Staff':
   from staff import staff
   staff()
 if option == 'Admin':
+  st.title("CovaC Admin Portal")
   from admin import admin_login
   admin_login()
 if option == 'About':
   from about import about
   about()
 if option == 'Dashboard':
-  st.title("Dashboard")
-  #from dashboard import dashboard
+  st.title("CovaC Dashboard")
+  from dashboard import dashboard
+  dashboard()
 
+  
 
 
 
