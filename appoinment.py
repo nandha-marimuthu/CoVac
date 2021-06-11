@@ -67,7 +67,7 @@ def appoinment(name,aadhar):
     st.success('Your Appoinment is Booked & Appoinment Id is '+aid)
     cont = "Don't forget to vaccinate !"
     pd = {'name':name,'aadhar':aadhar,'age':age,'region':region,'gender':gender,'email':email}
-    ap = {'aid':aid,'name':name,'aadhar':aadhar,'age':age,'center':center,'date':d,'slot':slot,'status':'processing'}
+    ap = {'aid':aid,'name':name,'aadhar':aadhar,'age':age,'center':center,'region':region,'date':d,'slot':slot,'status':'processing'}
     from pdfemail import pdf_mail
     pdf_mail(ap,cont)
     c4.insert_one(ap)

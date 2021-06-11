@@ -12,6 +12,14 @@ c3 = db['patient']
 c4 = db['appoinment']
 c5 = db['vaccinated']
 c6 = db["kee's roughwork"]
+
+def dup(x):
+  z=[]
+  for i in x:
+    if i not in z:
+      z.append(i)
+  return z
+
 def staff():
     st.markdown("""# Covac Staff Portal""")
     n = st.sidebar.text_input('staffname')
@@ -20,6 +28,7 @@ def staff():
     c=0
     for i in v1:
         c2=i['cname']
+        region=i['region']
         if n==i['staff']:
             if p==i['password']:
                 c+=1
@@ -57,17 +66,22 @@ def staff():
             n1=st.text_input("Name")
             a1=st.text_input("Aadhar")
             aid=st.text_input("Appoinment ID")
+            
             v2=c4.find({'name':n1,'aadhar':a1})
+           
             check=st.checkbox("Check")
             if check:
                 xyz=0
                 for j in v2:
                     dat=j['date']
                     slot1=j['slot']
+                    age=j['age']
                     xyz+=1
+                
+
                     if xyz==1:
                         st.write(n1,"has been vaccinated")
-                        dict1={'name':n1,'aadhar':a1,'centre':c2,'staff':n,'date':dat,'slot':slot1,'status':'vaccinated','aid':aid}
+                        dict1={'name':n1,'aadhar':a1,'centre':c2,'region':region,'age':age,'staff':n,'date':dat,'slot':slot1,'status':'vaccinated','aid':aid}
                         abc=c5.insert_one(dict1)                       
                         today = datetime.date.today()
                         tomorrow = today + datetime.timedelta(days=42)
