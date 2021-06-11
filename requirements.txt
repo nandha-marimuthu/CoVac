@@ -1,0 +1,8 @@
+pymongo
+streamlit
+dnspython
+covid_india
+pandas
+numpy
+fpdf
+captcha

@@ -80,7 +80,7 @@ def appoinment(name,aadhar):
 
 
 def login():
-  st.title('Appoinment')
+  st.title('Appointment')
   name = st.text_input('Name')
   aadhar = st.text_input('Aadhar No')
   a = st.checkbox('procced')

@@ -11,7 +11,7 @@ c2 = db['admin']
 c3 = db['patient']
 c4 = db['appoinment']
 c5 = db['vaccinated']
-c6 = db["kee's roughwork"]
+
 
 def dup(x):
   z=[]
@@ -21,7 +21,7 @@ def dup(x):
   return z
 
 def staff():
-    st.markdown("""# Covac Staff Portal""")
+    st.markdown("""# CovaC Staff Portal""")
     n = st.sidebar.text_input('staffname')
     p = st.sidebar.text_input('password',type="password")
     v1=c1.find({'staff':n,'password':p})

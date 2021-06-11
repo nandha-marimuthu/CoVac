@@ -22,7 +22,7 @@ def dup(x):
     return z
 
 def dashboard():
-    st.title("Welcome to Covac Dashboard")
+    #st.title("Welcome to Covac Dashboard")
     des="People Understand things through Visualization"
     st.markdown(f"<h1 style='text-align: center; color: orange;'>{des}</h1>",unsafe_allow_html=True)
     vis=st.checkbox("Vizualize")
