@@ -23,8 +23,8 @@ def dup(x):
 
 def dashboard():
     #st.title("Welcome to Covac Dashboard")
-    des="Welcome to Covac Dashboard"
-    st.markdown(f"<h1 style='text-align: center; color: white;'>{des}</h1>",unsafe_allow_html=True)
+    des="Welcome to CovaC Dashboard"
+    st.title(des)
     vis=True
     region=[]
     name=[]

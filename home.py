@@ -32,9 +32,19 @@ if option == 'Home':
 
   with col3:
     st.write("")
- 
-  st.markdown(f"<marquee width='70%' direction='left' height='40px'>{ke}</marquee>",unsafe_allow_html=True)
+  
+  col1, col2, col3 = st.beta_columns([1,8,1])
 
+  with col1:
+    st.write("")
+
+  with col2:
+    st.markdown(f"<marquee width='100%' direction='left' height='40px'>{ke}</marquee>",unsafe_allow_html=True)
+
+  with col3:
+    st.write("")
+ 
+ 
   # des1="CovaC - Vaccination Portal"
   # st.markdown(f"<h1 style='text-align: center; color: FireBrick;'>{des1}</h1>",unsafe_allow_html=True)
   
