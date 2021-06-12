@@ -21,11 +21,22 @@ option = st.sidebar.selectbox('Menu',['Home','Appointment','Cancel/Reschedule','
 
 if option == 'Home':
   v=c5.count_documents({})
-  ke="Don't forget to vaccinate ! Stay home stay safe !"+ " People vaccinated through CovaC :"+str(v)
+  ke="Don't forget to vaccinate ! Stay home stay safe !"+ " People vaccinated through CovaC : "+str(v)
+  col1, col2, col3 = st.beta_columns([1,6,1])
+
+  with col1:
+    st.write("")
+
+  with col2:
+    st.image('vaccination.png',width=600)
+
+  with col3:
+    st.write("")
+ 
   st.markdown(f"<marquee width='70%' direction='left' height='40px'>{ke}</marquee>",unsafe_allow_html=True)
 
-  des1="CovaC - Vaccination Portal"
-  st.markdown(f"<h1 style='text-align: center; color: FireBrick;'>{des1}</h1>",unsafe_allow_html=True)
+  # des1="CovaC - Vaccination Portal"
+  # st.markdown(f"<h1 style='text-align: center; color: FireBrick;'>{des1}</h1>",unsafe_allow_html=True)
   
   print(v)
   from covid import Covid
@@ -35,6 +46,7 @@ if option == 'Home':
   states = []
   for i in a:
     states.append(i)
+  st.title('Covid Information')
   sta = st.selectbox('statewiese data',states)
   ac,cu,de=a[sta]["Active"],a[sta]["Cured"],a[sta]["Death"]
   st.write('Total: ',ac+cu+de)
@@ -44,6 +56,7 @@ if option == 'Home':
   st.title('FAQ')
   from faq import faq
   faq()
+
 if option == 'Appointment':
   from appoinment import login
   login()
@@ -61,7 +74,6 @@ if option == 'About':
   from about import about
   about()
 if option == 'Dashboard':
-  st.title("CovaC Dashboard")
   from dashboard import dashboard
   dashboard()
 

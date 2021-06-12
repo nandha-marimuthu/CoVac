@@ -1,6 +1,7 @@
 import streamlit as st
 
 def about():
+    st.image('vaccination.png',width=300)
     st.title('Covid Guide')
     a=st.video("covid.mp4")
     st.header("Helpline")
