@@ -69,7 +69,7 @@ def staff():
             
             v2=c4.find({'name':n1,'aadhar':a1})
            
-            check=st.checkbox("Check")
+            check=st.checkbox("Vaccinate")
             if check:
                 xyz=0
                 for j in v2:
@@ -80,21 +80,21 @@ def staff():
                 
 
                     if xyz==1:
-                        st.write(n1,"has been vaccinated")
-                        dict1={'name':n1,'aadhar':a1,'centre':c2,'region':region,'age':age,'staff':n,'date':dat,'slot':slot1,'status':'vaccinated','aid':aid}
-                        abc=c5.insert_one(dict1)                       
                         today = datetime.date.today()
                         tomorrow = today + datetime.timedelta(days=42)
-                        cont="You have been vaccinated "+"\nDon't forget to take your second dose on "+str(tomorrow)
+                        cont=n1+" have been vaccinated "+"\nDon't forget to take your second dose on "+str(tomorrow)
+                        st.success(cont)
+                        dict1={'name':n1,'aadhar':a1,'centre':c2,'region':region,'age':age,'staff':n,'date':dat,'slot':slot1,'status':'vaccinated','aid':aid}
+                        abc=c5.insert_one(dict1)                       
                         del1=c4.delete_one({'aadhar':a1})
                         from pdfemail import pdf_mail
                         pdf_mail(dict1,cont)
 
                     else:
-                        "Invalid name or aadhar number"
+                        st.error("Invalid name or aadhar number")
 
     elif n=="" or  p=="":"Please login to continue"
     else:"Invalid credentials"  
-
+    
 
 

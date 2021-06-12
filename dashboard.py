@@ -23,9 +23,9 @@ def dup(x):
 
 def dashboard():
     #st.title("Welcome to Covac Dashboard")
-    des="People Understand things through Visualization"
-    st.markdown(f"<h1 style='text-align: center; color: orange;'>{des}</h1>",unsafe_allow_html=True)
-    vis=st.checkbox("Vizualize")
+    des="Welcome to Covac Dashboard"
+    st.markdown(f"<h1 style='text-align: center; color: white;'>{des}</h1>",unsafe_allow_html=True)
+    vis=True
     region=[]
     name=[]
     cname=[]
@@ -37,12 +37,12 @@ def dashboard():
         region.append(i['region'])
         cname.append(i['cname'])
                 
-    t2=c3.find()
+    t2=c5.find()
     for i in t2:
         name.append(i['name'])
         age.append(i['age'])
         region1.append(i['region'])
-        gender.append(i['gender'])
+        
 
 
     if vis ==True:
@@ -52,7 +52,7 @@ def dashboard():
             st.header("Vaccination centers in various Region")
             st.dataframe(df)
             st.header("People Vaccinated")
-            df1=pd.DataFrame({'Name':name,'Age':age,'location':region1,'Gender':gender})
+            df1=pd.DataFrame({'Name':name,'Age':age,'location':region1})
             st.dataframe(df1)
             
         if choice=='Display count':
@@ -213,7 +213,6 @@ def dashboard():
                     for i in a:
                         a1=i['age']
                         age.append(i['age'])
-                    st.write(type(a1))
                     age=dup(age)
 
                     for i in age:
