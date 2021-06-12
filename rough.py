@@ -28,20 +28,29 @@ c6 = db["kee's roughwork"]
 # mypdf.cell(200,10,txt="Wingardium leviosa",ln=1,align="C")
 # mypdf.output("keerthu.pdf")
 
-from covid import Covid
-from covid_india import states
-a = states.getdata()
-states = ['Tamil Nadu']
-for i in a:
-    states.append(i)
-sta = st.selectbox('statewiese data',states)
+# from covid import Covid
+# from covid_india import states
+# a = states.getdata()
+# states = ['Tamil Nadu']
+# for i in a:
+#     states.append(i)
+# sta = st.selectbox('statewiese data',states)
 
-for j in a[sta]:
-    print(j)
-    print(a[sta][j])
-    #st.write(i," : ",a[sta][j])
+# for j in a[sta]:
+#     print(j)
+#     print(a[sta][j])
+#     #st.write(i," : ",a[sta][j])
     
-#print(states.getdata('Total'))
+# #print(states.getdata('Total'))
+# ke="This is a sample scrolling text that has scrolls in the upper direction."
+# st.markdown(f"<marquee width='60%' direction='right' height='100px'>{ke}</marquee>",unsafe_allow_html=True)
+# ke=st.image("test.jpg")
+# st.markdown(f"<marquee width='60%' direction='right' height='100px'>{ke}</marquee>",unsafe_allow_html=True)
 
+# "<style>
+# '.parallax{("background-image: url("test.jpg") min-height: "500px" background-attachment: "fixed" background-position: "center" background-repeat: "no-repeat" background-size: "cover" )"
+# }'
+# </style>"
 
-
+# <!-- Container element -->
+# <div class="parallax"></div>",unsafe_allow_html=True)

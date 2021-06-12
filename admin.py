@@ -62,32 +62,47 @@ def edit_centers():
 
 
 def admin_login():
-        #st.title("Welcome to admin portal\n")
-    #admin_id=input("Adminname : ")
-    #pwd=input("Password : ")
-        admin_user=st.sidebar.text_input("Admin Name")
-        admin_pswd=st.sidebar.text_input("Admin Password",type='password')
-        choice=st.sidebar.checkbox("Login")
-        f=0
+    admin_user=st.sidebar.text_input("Admin Name")
+    admin_pswd=st.sidebar.text_input("Admin Password",type='password')
+    check=st.sidebar.checkbox("Login")
+    f=0
+    if check:
         a1 = c2.find({'name':admin_user})
         p1=c2.find({'password':admin_pswd})
-        c = 0
         for i in a1:
-           for j in p1:
-             f=1
-   
-        if f==1:
-            if choice==True:
+            for j in p1:
+                f=1
+            if f==1:
                 st.success("Welcome back {}".format(admin_user))
+                edit_centers()
+            elif admin_user=="" or  admin_pswd=="":"Please login to continue"
+            else:st.error("Invalid admin credentials")
+        #st.title("Welcome to admin portal\n")
+        #admin_id=input("Adminname : ")
+        #pwd=input("Password : ")
+        # admin_user=st.sidebar.text_input("Admin Name")
+        # admin_pswd=st.sidebar.text_input("Admin Password",type='password')
+        # choice=st.sidebar.checkbox("Login")
+        # f=0
+        # a1 = c2.find({'name':admin_user})
+        # p1=c2.find({'password':admin_pswd})
+        # c = 0
+        # for i in a1:
+        #    for j in p1:
+        #      f=1
+   
+        # if f==1:
+        #     if choice==True:
+        #         st.success("Welcome back {}".format(admin_user))
     
-        if choice == True:
-            if f==0:
-                st.error("Invalid admin member '{}'".format(admin_user))
+        # if choice == True:
+        #     if f==0:
+        #         st.error("Invalid admin member '{}'".format(admin_user))
 
-        if choice==True:
-            if admin_user  and admin_user in a1:
-                if admin_pswd and admin_pswd in p1:
-                    edit_centers()
+        # if choice==True:
+        #     if admin_user  and admin_user in a1:
+        #         if admin_pswd and admin_pswd in p1:
+        #             edit_centers()
 
 
 
