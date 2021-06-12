@@ -17,13 +17,17 @@ c3 = db['patient']
 c4 = db['appoinment']
 c5 = db['vaccinated']
 
-
-
 option = st.sidebar.selectbox('Menu',['Home','Appointment','Cancel/Reschedule','Staff','Admin','Dashboard','About'])
 
 if option == 'Home':
+  v=c5.count_documents({})
+  ke="Don't forget to vaccinate ! Stay home stay safe !"+ " People vaccinated through CovaC :"+str(v)
+  st.markdown(f"<marquee width='70%' direction='left' height='40px'>{ke}</marquee>",unsafe_allow_html=True)
+
   des1="CovaC - Vaccination Portal"
   st.markdown(f"<h1 style='text-align: center; color: FireBrick;'>{des1}</h1>",unsafe_allow_html=True)
+  
+  print(v)
   from covid import Covid
 
   from covid_india import states
