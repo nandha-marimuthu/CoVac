@@ -2,7 +2,9 @@ pymongo
 streamlit
 dnspython
 covid_india
+covid
 pandas
 numpy
 fpdf
 captcha
+plotly
