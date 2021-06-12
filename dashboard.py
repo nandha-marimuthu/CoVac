@@ -46,7 +46,7 @@ def dashboard():
 
 
     if vis ==True:
-        choice=st.selectbox('Pick your view',['choose one from the dropdown','Table','Display count','Bar Chart','Pie Chart'])
+        choice=st.selectbox('Pick your view',['choose one from the dropdown','Table','Display count','Graphical representation','Pie Chart'])
         if choice=='Table':
             df=pd.DataFrame({'Center Name':cname,'Region':region})
             st.header("Vaccination centers in various Region")
@@ -96,7 +96,7 @@ def dashboard():
 
                   
 
-        if choice=='Bar Chart':
+        if choice=='Graphical representation':
             select=st.selectbox('Classification',['select one from the below options','Count of people Vaccinated','Rate of appointment booking'])
             if select=='Count of people Vaccinated':
                 ch=st.radio('Classification',['Date wise','Region wise','Center wise','Age wise'])
@@ -115,7 +115,7 @@ def dashboard():
                   df = pd.DataFrame({'date': dat,'Vaccinated': vac})
 
                   df = df.rename(columns={'date':'index'}).set_index('index')
-                  st.bar_chart(df)
+                  st.line_chart(df)
 
                 if ch=='Region wise':
                     a=c5.find()
@@ -149,14 +149,27 @@ def dashboard():
                 if ch=='Age wise':
                     a=c5.find()
                     age=[]
-                    vac=[]
+                    vac1=[]
+                    vac2=[]
+                    vac3=[]
                     for i in a:
-                        age.append(i['age'])
+                        a1=i['age']
+                        age.append(int(i['age']))
                     age=dup(age)
 
                     for i in age:
-                        vac.append(c5.find({'age':i}).count())
-                    df=pd.DataFrame({'Age':age,'Vaccinated':vac})
+                        if i>=18 and i<=45:
+                            vac1.append(i)
+                        if i>45 and i<=60:
+                            vac2.append(i)
+                        if i>60:
+                            vac3.append(i)
+                    vac=[]
+                    vac.append(len(vac1))
+                    vac.append(len(vac2))
+                    vac.append(len(vac3))
+
+                    df=pd.DataFrame({'Age':['Between 18-45','Between 45-60','greater than 60'],'Vaccinated':vac})
                     df = df.rename(columns={'Age':'index'}).set_index('index')
                     st.bar_chart(df)
 
@@ -212,20 +225,20 @@ def dashboard():
                     vac3=[]
                     for i in a:
                         a1=i['age']
-                        age.append(i['age'])
+                        age.append(int(i['age']))
                     age=dup(age)
 
                     for i in age:
-                        if a1>=18 and a1<=45:
-                            vac1.append(c5.find({'age':i}).count())
-                        if a1>45 and a1<=60:
-                            vac2.append(c5.find({'age':i}).count())
-                        if a1>60:
-                            vac3.append(c5.find({'age':i}).count())
+                        if i>=18 and i<=45:
+                            vac1.append(i)
+                        if i>45 and i<=60:
+                            vac2.append(i)
+                        if i>60:
+                            vac3.append(i)
                     vac=[]
-                    vac.extend(vac1)
-                    vac.extend(vac2)
-                    vac.extend(vac3)
+                    vac.append(len(vac1))
+                    vac.append(len(vac2))
+                    vac.append(len(vac3))
 
 
 
