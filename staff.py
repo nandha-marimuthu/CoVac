@@ -4,7 +4,7 @@ import pandas as pd
 import streamlit as st
 import smtplib
 import datetime
-client = MongoClient('mongodb+srv://dbuser1:1234@eshop.m8tu7.mongodb.net/test')
+client = MongoClient('mongodb+srv://dbuser2:covac@eshop.m8tu7.mongodb.net/test')
 db = client['Covac']
 c1 = db['centers']
 c2 = db['admin']

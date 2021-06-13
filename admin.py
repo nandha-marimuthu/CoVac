@@ -1,7 +1,7 @@
 import streamlit as st
 from pymongo import MongoClient, collection
 from dashboard import dashboard 
-client = MongoClient('mongodb+srv://dbuser1:1234@eshop.m8tu7.mongodb.net/test')
+client = MongoClient('mongodb+srv://dbuser2:covac@eshop.m8tu7.mongodb.net/test')
 
 db = client['Covac']
 c1 = db['centers']
