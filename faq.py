@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 import time
-client = MongoClient('mongodb+srv://dbuser1:1234@eshop.m8tu7.mongodb.net/test')
+client = MongoClient('mongodb+srv://dbuser2:covac@eshop.m8tu7.mongodb.net/test')
 db = client['Covac']
 
 c1 = db['centers']

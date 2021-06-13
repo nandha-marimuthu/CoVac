@@ -7,7 +7,7 @@ import random
 import datetime
 
 #connecting with the mongodb cluster using the connection token
-client = MongoClient('mongodb+srv://dbuser1:1234@eshop.m8tu7.mongodb.net/test')
+client = MongoClient('mongodb+srv://dbuser2:covac@eshop.m8tu7.mongodb.net/test')
 
 #declaring the database
 db = client['Covac']

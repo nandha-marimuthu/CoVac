@@ -3,7 +3,7 @@ import pandas as pd
 from pymongo import MongoClient, collection
 import plotly.graph_objects as go
 
-client = MongoClient('mongodb+srv://dbuser1:1234@eshop.m8tu7.mongodb.net/test')
+client = MongoClient('mongodb+srv://dbuser2:covac@eshop.m8tu7.mongodb.net/test')
 
 db = client['Covac']
 c1 = db['centers']
