@@ -46,7 +46,7 @@ def dashboard():
 
 
     if vis ==True:
-        choice=st.selectbox('Pick your view',['choose one from the dropdown','Table','Display count','Graphical representation','Pie Chart'])
+        choice=st.selectbox('Pick your view',['choose one from the dropdown','Table','Numerical representation','Graphical representation','Pie Chart'])
         if choice=='Table':
             df=pd.DataFrame({'Center Name':cname,'Region':region})
             st.header("Vaccination centers in various Region")
@@ -55,10 +55,10 @@ def dashboard():
             df1=pd.DataFrame({'Name':name,'Age':age,'location':region1})
             st.dataframe(df1)
             
-        if choice=='Display count':
+        if choice=='Numerical representation':
             select=st.selectbox('Classification',['select one from the below options','Count of people Vaccinated','Rate of appointment booking'])
             if select=='Count of people Vaccinated':
-               ch=st.selectbox('Types of Classification',['region based','center based','gender based'])
+               ch=st.selectbox('Types of Classification',['region based','center based'])
                region=dup(region)
                 
                if ch=='region based':
@@ -73,11 +73,7 @@ def dashboard():
                     count1=c5.find({'centre':option1}).count()
                     st.success("People Vacinated in {} are {}".format(option1,count1))
 
-               if ch=='gender based':
-                option1=st.radio('Gender',dup(gender))
-                count1=0
-                count1=c3.find({'gender':option1}).count()
-                st.success("No. of {} vaccinated {}".format(option1,count1))
+              
 
 
             if select=='Rate of appointment booking':
